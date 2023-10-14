@@ -1,4 +1,4 @@
-#아이템9 | try-finally보다는try-with-resources를 사용하라
+# 아이템9 | try-finally보다는try-with-resources를 사용하라
 <hr>
 자바 라이브러리에는 close 메서드를 호출하여 직접 닫아줘야 하는 자원이 많다.
 
