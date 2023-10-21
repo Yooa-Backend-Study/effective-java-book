@@ -8,7 +8,8 @@
 
 ***Hash 자료구조의 비교 순서***
 
-![Untitled](Equals%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%A2%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%B4%20%E1%84%92%E1%85%A1%E1%84%85%E1%85%A7%E1%84%80%E1%85%A5%E1%84%83%E1%85%B3%E1%86%AB%20HashCode%E1%84%83%E1%85%A9%20%E1%84%8C%E1%85%A2%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%84%85%E1%85%A1%20d9d6a10b94db47b098cf80fa08aaddb4/Untitled.png)
+![image](https://github.com/Yooa-Backend-Study/effective-java-book/assets/55571682/20a84ace-818b-4f0f-a757-cff8d7739601)
+
 
 - 동작원리에서 볼 수 있듯, 해시 자료구조는 해시코드를 먼저 비교하게 되는데 만약 해시코드가 다르다면 Equals는 실행도 되지 않고 다른 객체로 인식하게 된다.
 
