@@ -1,8 +1,8 @@
-이번 주제는 항상 toString을 사용하려면 재정의를 하라는 문장을 많이 본적이 있을것입니다.
+이번 주제는 항상 toString을 사용하려면 재정의하라는 문장을 많이 본적이 있을 것입니다.
 
 
 ### Object 클래스의 toString 메소드의 구현
-기본적으로 클래스는 가장 상위인object를 상속하게 됩니다. 그래서 앞에 보았던 equals나 hashCode과 같이 toString도 재정의를 염두에 두고 설계된 것이라 재 정의시 지켜야하는 규칙이 있습니다.
+기본적으로 클래스는 가장 상위인object를 상속하게 됩니다. 그래서 앞에 보았던 equals나 hashCode과 같이 toString도 재정의를 염두에 두고 설계된 것이라 재 정의 시 지켜야 하는 규칙이 있습니다.
 먼저 기본적인 Object의 toString입니다.
 ```java
     public String toString() {
@@ -13,22 +13,22 @@
 
 ### toString은 왜 재정의 해야할가??
 대표적 2가지 이유 
-1. 디버깅 하기 편리하다 :  디버깅 시 객체의 내부 상태를 쉽게 확인할 수 있습니다, 로그에 기록할때도 편리하다
-toString정의하기전 <br>
+1. 디버깅 하기 편리하다 :  디버깅 시 객체의 내부 상태를 쉽게 확인할 수 있습니다, 로그에 기록할 때도 편리하다
+toString정의하기 전 <br>
 ![](https://velog.velcdn.com/images/cwangg897/post/7a7c418d-c88a-4331-a2f3-d8de30d936fe/image.png)
 정의하고 난 후 <br>
 ![](https://velog.velcdn.com/images/cwangg897/post/9c22d478-7b49-4f12-b715-575087586b27/image.png)
 2. print나 log로 출력했을때 보기 편합니다
 
 
-#### 그렇다면 toString은 어떻게 재정의해야할가?
+#### 그렇다면 toString은 어떻게 재정의해야 할까?
 ```
 toString은 그 객체가 가진 주요 정보 모두를 반환하는 게 좋습니다. 
-전화번호면 Jenny=010-1234-1234와 같은 예시로 표현하는게 좋다고 합니다.
-만약 표현해야할 정보가 많다면 요약해서 정보를 표현하는게 좋습니다.
+전화번호면 Jenny=010-1234-1234와 같은 예시로 표현하는 게 좋다고 합니다.
+만약 표현해야 할 정보가 많다면 요약해서 정보를 표현하는 게 좋습니다.
 ```
 
-#### toString구현한다면 포맷 문서화할지 선택해야한다
+#### toString구현한다면 포맷 문서화할지 선택해야 한다
 포맷 문서화란?
 gpt - Java에서 "toString 포맷을 문서화한다"는 것은 toString 메서드의 반환 값의 형식 및 구조를 명시적으로 문서화하고 설명하는 것을 의미합니다. 
 이것은 주로 API 문서 또는 주석을 통해 수행됩니다. <br>
@@ -109,7 +109,7 @@ public class MyDate {
          */
 	@Override public String toString() {
 ```
-이렇게 한다면 포맷에 맞춰 코딩하는 경우를 피할수도 있어 포맷이 바뀌어 피해를 입을 경우가 적어집니다
+이렇게 한다면 포맷에 맞춰 코딩하는 경우를 피할 수도 있어 포맷이 바뀌어 피해를 볼 경우가 적어집니다
 
 
 
@@ -129,7 +129,7 @@ toString 메서드는 주로 객체의 내부 상태를 문자열로 표현하�
 
 #### enum도 왜 toString제공 안하는 이유
 이처럼 enum은 이미 toString 메서드를 가지고 있으며, 기본적으로 name() 메서드도 제공합니다. 
-따라서 enum을 문자열로 표현하는데 문제가 없으며, 추가적인 toString 메서드를 정의할 필요가 없습니다.
+따라서 enum을 문자열로 표현하는 데 문제가 없으며, 추가적인 toString 메서드를 정의할 필요가 없습니다.
 ```java
 enum Day {
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
@@ -158,12 +158,12 @@ System.out.println(phone.getLMember()); 코드 실행
 ```
 toString 메서드를 오버라이드하지 않고 롬복 라이브러리로 생성하면 순환 참조로 이어질 수 있습니다.
 JPA에서는 양방향으로 연결된 Entity끼리 조회하는 경우 서로의 정보를 순환하면서 조회하다가 stackoverflow가 발생하게 된다.
-자동 생성되는 toString은 재정의해야합니다.
+자동 생성되는 toString은 재정의해야 합니다.
 
 
 #### 2. Entity를 그대로 반환(json으로 return)하는 경우
 toString뿐만아니라 json생성 라이브러리에서도 이런 문제가 발생합니다
-Spring Boot 는 Controller에 @ResponseBody 선언 시 Object 를 JSON 형태로 직렬화하기 위해 HttpMessageConverters 에서 jackson Library 활용하기때문에 발생하게 됩니다
+Spring Boot 는 Controller에 @ResponseBody 선언 시 Object 를 JSON 형태로 직렬화하기 위해 HttpMessageConverters 에서 jackson Library 활용하기 때문에 발생하게 됩니다
 ```
 Author 엔티티를 JSON 형태로 직렬화하는 과정에서, Author 엔티티가 참조하고 있는 Book 엔티티를 조회하게 된다.
 Book 엔티티를 조회하는 과정에서, Book 엔티티가 참조하고 있는 Author 엔티티를 조회한다.
@@ -179,5 +179,5 @@ Book 엔티티를 조회하는 과정에서, Book 엔티티가 참조하고 있�
 
 
 #### 개인적 의견
-개발을 하다가 print로 직접확인하거나 log로 확인하거나 디버깅으로 확인할때 편할려고 사용하라는 용도로 만들어진거 같습니다. 
-toString도 하나의 문서로 활용될 수 있다라고 느껴졌습니다. 
+개발하다가 print로 직접 확인하거나 log로 확인하거나 디버깅으로 확인할 때 편할려고 사용하라는 용도로 만들어진 거 같습니다.
+toString도 하나의 문서로 활용될 수 있다고 느껴졌습니다.
