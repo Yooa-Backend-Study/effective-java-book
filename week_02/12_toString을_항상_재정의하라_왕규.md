@@ -114,7 +114,7 @@ public class MyDate {
 
 
 
-#### 정적 유리틸리는 toString제공할 이유가 없다
+#### 정적 유틸리티는 toString제공할 이유가 없다
 정적 유틸리티 클래스(static utility class)는 주로 인스턴스 메서드를 갖지 않고, 정적 메서드로만 구성된 클래스입니다. <br>
 ```
 이유들
